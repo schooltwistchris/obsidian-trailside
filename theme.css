@@ -326,7 +326,7 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] > .view-conte
 	border: 1px solid var(--background-modifier-border);
 }
 
-/* Links: a thin, soft underline that firms up on hover */
+/* Links: a thin underline with a little room below the text */
 body {
 	--link-decoration-thickness: 1px;
 }
@@ -334,14 +334,7 @@ body {
 .internal-link,
 .external-link,
 .cm-underline {
-	text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
 	text-underline-offset: 0.2em;
-}
-
-.internal-link:hover,
-.external-link:hover,
-.cm-underline:hover {
-	text-decoration-color: currentColor;
 }
 
 /* ---------- Bulletin notes ----------
