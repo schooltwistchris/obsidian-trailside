@@ -1,0 +1,402 @@
+/*
+ * Trailside: a calm, flat theme for Obsidian.
+ * Pale mint around the edges, white pages, blue-grey text, heavy titles,
+ * brick-red section headings, flat cards with 8px corners and pill tags.
+ */
+
+/* ---------- Shared ---------- */
+
+body {
+	--font-interface-theme: -apple-system, system-ui, BlinkMacSystemFont, Aptos, Roboto, "Segoe UI", Helvetica, sans-serif;
+	--font-text-theme: -apple-system, system-ui, BlinkMacSystemFont, Aptos, Roboto, "Segoe UI", Helvetica, sans-serif;
+
+	--line-height-normal: 1.5;
+	--bold-weight: 700;
+
+	/* Corners: flat, softly rounded */
+	--radius-s: 6px;
+	--radius-m: 8px;
+	--radius-l: 12px;
+	--button-radius: 8px;
+	--input-radius: 8px;
+	--modal-radius: 12px;
+	--callout-radius: 8px;
+	--checkbox-radius: 3px;
+	--nav-item-radius: 6px;
+
+	/* Headings: heavy and tight */
+	--inline-title-weight: 800;
+	--inline-title-size: 2.25em;
+	--h1-size: 1.75em;
+	--h1-weight: 800;
+	--h1-letter-spacing: -0.024em;
+	--h2-size: 1.15em;
+	--h2-weight: 600;
+	--h2-letter-spacing: 0;
+	--h3-size: 1.1em;
+	--h3-weight: 800;
+	--h4-size: 1em;
+	--h4-weight: 700;
+	--h5-size: 0.95em;
+	--h5-weight: 700;
+	--h6-size: 0.9em;
+	--h6-weight: 600;
+	--heading-spacing: 1.75em;
+
+	/* Pills */
+	--tag-radius: 990px;
+	--tag-border-width: 1px;
+	--tag-padding-x: 0.6em;
+	--pill-radius: 990px;
+
+	/* Flat surfaces */
+	--shadow-s: 0 0 0 1px var(--trailside-hairline);
+	--callout-border-width: 0;
+	--blockquote-border-thickness: 3px;
+
+	/* Tables: no outer side lines */
+	--table-column-first-border-width: 0;
+	--table-column-last-border-width: 0;
+
+	/* Properties */
+	--metadata-label-font-weight: 400;
+
+	/* Bases */
+	--bases-cards-radius: 8px;
+	--bases-cards-shadow: 0 0 0 1px var(--background-modifier-border);
+	--bases-cards-shadow-hover: 0 0 0 1px var(--background-modifier-border-hover);
+	--bases-kanban-card-radius: 8px;
+	--bases-kanban-column-radius: 8px;
+	--bases-table-header-weight: 600;
+	--bases-table-column-border-width: 0;
+}
+
+/* ---------- Light ---------- */
+
+.theme-light {
+	--trailside-mint: #F5FAF6;
+	--trailside-ink: #29353C;
+	--trailside-grey: #677074;
+	--trailside-line: #E3E5E5;
+	--trailside-brick: #A42D1E;
+	--trailside-blue: #2377D2;
+	--trailside-cream: #FCF8F3;
+	--trailside-gold: #8A6F4C;
+	--trailside-hairline: rgba(41, 53, 60, 0.05);
+
+	--background-primary: #FFFFFF;
+	--background-primary-alt: var(--trailside-mint);
+	--background-secondary: var(--trailside-mint);
+	--background-secondary-alt: #EDF4EF;
+	--background-modifier-border: var(--trailside-line);
+	--background-modifier-border-hover: rgba(41, 53, 60, 0.25);
+	--background-modifier-border-focus: rgba(41, 53, 60, 0.35);
+	--background-modifier-hover: rgba(41, 53, 60, 0.05);
+	--background-modifier-active-hover: rgba(35, 119, 210, 0.1);
+	--background-modifier-form-field: #FFFFFF;
+	--divider-color: var(--trailside-line);
+
+	--text-normal: var(--trailside-ink);
+	--text-muted: var(--trailside-grey);
+	--text-faint: #9AA2A5;
+	--text-accent: var(--trailside-blue);
+	--text-accent-hover: #1A5FA8;
+	--text-on-accent: #FFFFFF;
+	--text-selection: rgba(35, 119, 210, 0.18);
+
+	--color-accent: var(--trailside-blue);
+	--color-accent-1: #1A5FA8;
+	--color-accent-2: #154D89;
+	--interactive-accent: var(--trailside-blue);
+	--interactive-accent-hover: #1A5FA8;
+	--link-color: var(--trailside-blue);
+	--link-color-hover: #1A5FA8;
+	--link-external-color: var(--trailside-blue);
+	--link-external-color-hover: #1A5FA8;
+
+	--h1-color: var(--trailside-ink);
+	--h2-color: var(--trailside-brick);
+	--h3-color: var(--trailside-ink);
+	--h4-color: var(--trailside-ink);
+	--h5-color: var(--trailside-ink);
+	--h6-color: var(--trailside-grey);
+	--inline-title-color: var(--trailside-ink);
+
+	--tag-background: var(--trailside-cream);
+	--tag-background-hover: #F6EFE5;
+	--tag-color: var(--trailside-ink);
+	--tag-color-hover: var(--trailside-ink);
+	--tag-border-color: rgba(41, 53, 60, 0.15);
+	--tag-border-color-hover: rgba(41, 53, 60, 0.25);
+	--pill-background: #FFFFFF;
+	--pill-border-color: rgba(41, 53, 60, 0.25);
+
+	--checkbox-border-color: var(--trailside-ink);
+	--checkbox-border-color-hover: var(--trailside-ink);
+	/* Done to-dos: pale green box, green outline and tick, grey text, no strikethrough */
+	--trailside-done: #56B66F;
+	--checkbox-color: #F4FBF1;
+	--checkbox-color-hover: #E8F6E2;
+	--checkbox-marker-color: var(--trailside-done);
+	--checklist-done-color: var(--trailside-grey);
+	--checklist-done-decoration: none;
+
+	--code-background: var(--trailside-cream);
+	--blockquote-border-color: var(--trailside-line);
+	--hr-color: var(--trailside-line);
+	--list-marker-color: var(--trailside-grey);
+	--metadata-label-text-color: var(--trailside-gold);
+
+	--tab-container-background: var(--trailside-mint);
+	--titlebar-background: var(--trailside-mint);
+	--titlebar-background-focused: var(--trailside-mint);
+	--ribbon-background: var(--trailside-mint);
+
+	--bases-cards-background: #FFFFFF;
+	--bases-table-header-color: var(--trailside-grey);
+	--bases-table-border-color: var(--trailside-line);
+}
+
+/* ---------- Dark ---------- */
+
+.theme-dark {
+	--trailside-night: #0B151B;
+	--trailside-panel: #1B2930;
+	--trailside-ink: #E1E5E8;
+	--trailside-grey: #A8AFB3;
+	--trailside-line: #475257;
+	--trailside-peach: #FBBDA8;
+	--trailside-blue: #6AB3FD;
+	--trailside-chip: #23363F;
+	--trailside-steel: #91B4C6;
+	--trailside-hairline: rgba(225, 229, 232, 0.06);
+
+	--background-primary: var(--trailside-panel);
+	--background-primary-alt: var(--trailside-night);
+	--background-secondary: var(--trailside-night);
+	--background-secondary-alt: #12202A;
+	--background-modifier-border: var(--trailside-line);
+	--background-modifier-border-hover: #5C686D;
+	--background-modifier-border-focus: #707C81;
+	--background-modifier-hover: rgba(225, 229, 232, 0.06);
+	--background-modifier-active-hover: rgba(106, 179, 253, 0.14);
+	--background-modifier-form-field: var(--trailside-chip);
+	--divider-color: var(--trailside-line);
+
+	--text-normal: var(--trailside-ink);
+	--text-muted: var(--trailside-grey);
+	--text-faint: #7A8489;
+	--text-accent: var(--trailside-blue);
+	--text-accent-hover: #93C8FE;
+	--text-on-accent: #0E1D24;
+	--text-selection: rgba(106, 179, 253, 0.25);
+
+	--color-accent: var(--trailside-blue);
+	--color-accent-1: #93C8FE;
+	--color-accent-2: #B5D9FE;
+	--interactive-accent: var(--trailside-blue);
+	--interactive-accent-hover: #93C8FE;
+	--link-color: var(--trailside-blue);
+	--link-color-hover: #93C8FE;
+	--link-external-color: var(--trailside-blue);
+	--link-external-color-hover: #93C8FE;
+
+	--h1-color: var(--trailside-ink);
+	--h2-color: var(--trailside-peach);
+	--h3-color: var(--trailside-ink);
+	--h4-color: var(--trailside-ink);
+	--h5-color: var(--trailside-ink);
+	--h6-color: var(--trailside-grey);
+	--inline-title-color: var(--trailside-ink);
+
+	--tag-background: var(--trailside-chip);
+	--tag-background-hover: #2C4450;
+	--tag-color: var(--trailside-ink);
+	--tag-color-hover: var(--trailside-ink);
+	--tag-border-color: transparent;
+	--tag-border-color-hover: transparent;
+	--pill-background: var(--trailside-chip);
+	--pill-border-color: transparent;
+
+	--checkbox-border-color: var(--trailside-ink);
+	--checkbox-border-color-hover: var(--trailside-ink);
+	--trailside-done: #409F65;
+	--checkbox-color: #263735;
+	--checkbox-color-hover: #2D4440;
+	--checkbox-marker-color: var(--trailside-done);
+	--checklist-done-color: var(--trailside-grey);
+	--checklist-done-decoration: none;
+
+	--code-background: var(--trailside-chip);
+	--blockquote-border-color: var(--trailside-line);
+	--hr-color: var(--trailside-line);
+	--list-marker-color: var(--trailside-grey);
+	--metadata-label-text-color: var(--trailside-steel);
+
+	--tab-container-background: var(--trailside-night);
+	--titlebar-background: var(--trailside-night);
+	--titlebar-background-focused: var(--trailside-night);
+	--ribbon-background: var(--trailside-night);
+
+	--bases-cards-background: var(--trailside-panel);
+	--bases-table-header-color: var(--trailside-grey);
+	--bases-table-border-color: var(--trailside-line);
+}
+
+/* ---------- Details variables can't reach ---------- */
+
+/* Tight letter spacing on the big note title, like a page title */
+.inline-title {
+	letter-spacing: -0.024em;
+}
+
+/* Checkboxes: a firmer outline; done ones get a green outline and fade a little */
+input[type="checkbox"] {
+	border-width: 1.5px;
+}
+
+input[type="checkbox"]:checked,
+input[type="checkbox"]:checked:hover {
+	border-color: var(--trailside-done);
+	opacity: 0.75;
+}
+
+/* Primary buttons: solid accent with 8px corners */
+button.mod-cta {
+	border-radius: var(--button-radius);
+	font-weight: 400;
+}
+
+/* Tables: rows separated by single lines, no vertical lines */
+.markdown-rendered th,
+.markdown-rendered td {
+	border-left-width: 0;
+	border-right-width: 0;
+}
+
+/* ---------- Floating page ----------
+ * Notes sit on a white page that floats on the mint background with a soft glow.
+ * Only for notes in the main workspace on desktop, not embeds, popovers or mobile.
+ */
+
+body:not(.is-mobile) {
+	/* Shrinks in narrow panes so the text keeps room */
+	--trailside-page-pad-x: clamp(16px, 5%, 48px);
+	--trailside-page-pad-y: 40px;
+	--trailside-page-gap: 24px;
+}
+
+.theme-light {
+	--trailside-page-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+}
+
+.theme-dark {
+	--trailside-page-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+}
+
+/* The space around the page */
+body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] .view-header,
+body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] > .view-content,
+body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] > .view-content > .markdown-reading-view > .markdown-preview-view,
+body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] > .view-content > .markdown-source-view .cm-scroller {
+	background-color: var(--background-secondary);
+}
+
+/* The page itself */
+body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] > .view-content > .markdown-reading-view > .markdown-preview-view > .markdown-preview-sizer,
+body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] > .view-content > .markdown-source-view .cm-scroller > .cm-sizer {
+	box-sizing: border-box;
+	background-color: var(--background-primary);
+	box-shadow: var(--trailside-page-shadow);
+	padding: var(--trailside-page-pad-y) var(--trailside-page-pad-x);
+	margin-top: 0;
+	margin-bottom: var(--trailside-page-gap);
+	min-height: calc(100% - var(--trailside-page-gap));
+}
+
+/* With readable line length on, widen the page so the text keeps its usual width */
+body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] > .view-content > .markdown-reading-view > .markdown-preview-view.is-readable-line-width > .markdown-preview-sizer,
+body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] > .view-content > .markdown-source-view.is-readable-line-width .cm-scroller > .cm-sizer {
+	max-width: calc(var(--file-line-width) + 2 * var(--trailside-page-pad-x));
+}
+
+/* Callouts: flat white cards with a hairline; only the title keeps its colour */
+.callout {
+	background-color: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+}
+
+/* Links: a thin, soft underline that firms up on hover */
+body {
+	--link-decoration-thickness: 1px;
+}
+
+.internal-link,
+.external-link,
+.cm-underline {
+	text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+	text-underline-offset: 0.2em;
+}
+
+.internal-link:hover,
+.external-link:hover,
+.cm-underline:hover {
+	text-decoration-color: currentColor;
+}
+
+/* ---------- Bulletin notes ----------
+ * Bulletin (Basecamp message boards) tags its notes with `cssclasses: bulletin`
+ * and writes each comment as a `> [!comment]` callout.
+ */
+
+/* Bulletin writes the message title as the first heading, so skip Obsidian's own title */
+.bulletin .inline-title {
+	display: none;
+}
+
+/* Comments read as a thread: bold name, grey date, a line between entries */
+.callout[data-callout="comment"] {
+	background-color: transparent;
+	border: 0;
+	border-top: 1px solid var(--background-modifier-border);
+	border-radius: 0;
+	padding: 16px 0;
+	margin: 0;
+}
+
+/* In editing view the blank line between comments already adds space */
+.markdown-source-view .callout[data-callout="comment"] {
+	padding-bottom: 0;
+}
+
+.callout[data-callout="comment"] .callout-icon {
+	display: none;
+}
+
+.callout[data-callout="comment"] .callout-title {
+	color: var(--text-normal);
+	font-weight: 400;
+	gap: 0;
+}
+
+.callout[data-callout="comment"] .callout-title a {
+	color: var(--text-muted);
+	text-decoration: none;
+}
+
+.callout[data-callout="comment"] .callout-title a:hover {
+	text-decoration: underline;
+}
+
+.callout[data-callout="comment"] .callout-content {
+	padding: 0;
+}
+
+.callout[data-callout="comment"] .callout-content > :first-child {
+	margin-top: 4px;
+}
+
+/* Bases cards: property names match the ones in a note's properties */
+.bases-cards-label {
+	color: var(--metadata-label-text-color);
+}
